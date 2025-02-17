@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Panel de Administración</h2>
+  <div class="mb-3 d-flex">
+    <a href="{{ url_for('admin_upload') }}" class="btn btn-primary me-2">Subir Archivos</a>
+    <a href="{{ url_for('admin_files') }}" class="btn btn-secondary">Administrar Archivos</a>
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre de Usuario</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          {% if not user.is_approved %}
+            <form action="{{ url_for('approve_user', user_id=user.id) }}" method="post" style="display:inline-block;" onsubmit="return confirm('¿Aprobar a este usuario?');">
+              <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
+            </form>
+          {% else %}
+            <span class="badge bg-success">Aprobado</span>
+            <form action="{{ url_for('disapprove_user', user_id=user.id) }}" method="post" style="display:inline-block;" onsubmit="return confirm('¿Desaprobar a este usuario?');">
+              <button type="submit" class="btn btn-warning btn-sm">Desaprobar</button>
+            </form>
+          {% endif %}
+          <form action="{{ url_for('delete_user', user_id=user.id) }}" method="post" style="display:inline-block;" onsubmit="return confirm('¿Estás seguro de eliminar a este usuario?');">
+            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+          </form>
+        </td>        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

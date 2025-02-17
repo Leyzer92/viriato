@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Fondo con imagen y efecto blur para la página de pago */
+  .pago-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://live.staticflickr.com/65535/54078853670_5e6fcedf9c_b.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(4px);
+    z-index: -1;
+  }
+  /* Contenedor del contenido para mantener la legibilidad con fondo traslúcido */
+  .pago-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco más traslúcido */
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+</style>
+
+<div class="pago-bg"></div>
+<div class="container mt-5 pago-content">
+  <h1>Compra el Contenido Exclusivo</h1>
+  <p>
+    Aprovecha nuestro acceso completo a recursos premium, diseñado para potenciar tu preparación. Con esta suscripción, obtendrás:
+  </p>
+  <ul>
+    <li>Temarios detallados y actualizados de Física y Matemáticas.</li>
+    <li>Ejercicios prácticos y simulacros de examen.</li>
+    <li>Acceso a material exclusivo y actualizaciones periódicas.</li>
+    <li>Soporte personalizado y tutorías en línea.</li>
+  </ul>
+  <p>
+    Todo esto por una tarifa mensual competitiva que te ayudará a alcanzar tus objetivos académicos y profesionales. ¡No pierdas la oportunidad de impulsar tu éxito!
+  </p>
+  <a href="https://example.com/payment" class="btn btn-primary">Ir a la Página de Pago</a>
+</div>
+{% endblock %}

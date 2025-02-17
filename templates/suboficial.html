@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Fondo con blur */
+  .bg-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.lisanews.org/wp-content/uploads/2022/09/Disenos-de-articulos-LISA-News-10-2.png') no-repeat center center;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+  }
+  /* Barra de navegación interna */
+  .navbar-sub {
+    background-color: rgba(248, 249, 250, 0.8);
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .navbar-sub a {
+    margin: 0 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .navbar-sub a:hover {
+    text-decoration: underline;
+  }
+  /* Secciones con fondo traslúcido */
+  section {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+</style>
+
+<div class="bg-blur"></div>
+
+<div class="container mt-5">
+  <!-- Barra de navegación interna -->
+  <nav class="navbar-sub">
+    <a href="#como-ingresar">COMO INGRESAR</a>
+    <a href="#requisitos">REQUISITOS</a>
+    <a href="#titulaciones">TITULACIONES</a>
+    <a href="#pruebas">PRUEBAS DE INGRESO</a>
+    <a href="#pruebas-fisicas">PRUEBAS FÍSICAS</a>
+  </nav>
+  
+  <!-- Sección: COMO INGRESAR -->
+  <section id="como-ingresar">
+    <h2>COMO INGRESAR</h2>
+    <p>El ingreso en los centros docentes militares de formación para el acceso a las escalas de suboficiales puede ser:</p>
+    <ul>
+      <li><strong>Directo:</strong> procedimiento abierto basado en el principio de libre concurrencia, para todos los españoles mayores de 18 años, sin exigencia de título de técnico superior y no cumplir en el año de la convocatoria 21 años en el acceso sin titulación.</li>
+      <li><strong>Promoción interna:</strong> procedimiento restringido a los militares profesionales para posibilitarles el acceso a otra escala, dentro de su mismo Ejército. Tienen que cumplir, además de los de acceso directo, el requisito de tener un año de antigüedad desde su acceso a su escala y no hay límite de edad.</li>
+    </ul>
+  </section>
+  
+  <!-- Sección: REQUISITOS -->
+  <section id="requisitos">
+    <h2>REQUISITOS</h2>
+    <p>Para participar en los procesos selectivos para el ingreso en los centros docentes militares de formación para incorporarse a las diferentes escalas de suboficiales deberán reunirse, y mantenerse hasta su conclusión, los requisitos generales y específicos que, para cada forma de ingreso y enseñanzas a cursar, se determinan en los artículos 14 al 17 del Real Decreto 309/2021 sobre el Reglamento de Ingreso y promoción en las Fuerzas Armadas y que se resumen aquí:</p>
+    <ul>
+      <li>Poseer la nacionalidad española</li>
+      <li>No estar privado de los derechos civiles</li>
+      <li>Carecer de antecedentes penales.</li>
+      <li>No hallarse procesado o imputado en algún procedimiento judicial por delito doloso.</li>
+      <li>No haber sido separado mediante expediente disciplinario del servicio de cualquiera de las Administraciones Públicas.</li>
+      <li>Carecer de inserciones o tatuajes que puedan ser contrarios a los valores constitucionales o atentar contra la imagen de las Fuerzas Armadas.</li>
+    </ul>
+    <h3>Requisitos de edad:</h3>
+    <p>Los específicos de edad limitan la participación desde los 18 años. Y como edades máximas no se deberá cumplir ni haber cumplido en el año en que se publique la correspondiente convocatoria las siguientes:</p>
+    <ul>
+      <li>Ingreso directo sin exigencia previa de un título de Técnico Superior: 21 años.</li>
+      <li>Ingreso por promoción sin exigencia previa de un título de Técnico Superior: sin límite de edad.</li>
+    </ul>
+    <p>En las convocatorias, las plazas de la modalidad sin titulación se distribuirán entre las siguientes formas (vías) de acceso:</p>
+    <ul>
+      <li>Vía (a): Título de bachiller.</li>
+      <li>Vía (b): Título de técnico de grado medio.</li>
+      <li>Vía (c): Prueba de acceso a los ciclos formativos de grado superior, y aquellas otras que se especifiquen para el acceso a dichos ciclos en la normativa correspondiente.</li>
+    </ul>
+    <p>Cuando en la vía de acceso se exija un título de técnico de grado medio, el título deberá pertenecer a cualquiera de las familias profesionales que dan acceso a la especialidad fundamental.</p>
+    <p>Cuando en la vía de acceso se exija la prueba de acceso a los ciclos formativos de grado superior, las materias de la parte específica de dicha prueba deberán dar acceso a las familias profesionales que contengan títulos de técnico superior de los requeridos para la incorporación a la escala y para la adquisición de la especialidad fundamental solicitada. Si el acceso se realiza mediante otras pruebas o certificaciones profesionales, sus contenidos deben ser específicos y adaptados al perfil profesional del ciclo a cursar.</p>
+    <p>En los procesos de selección en los que se requiera estar en posesión de un título de técnico superior, las titulaciones de formación profesional de grado superior establecidas en la convocatoria correspondiente pertenecerán a las familias profesionales indicadas en el apartado 2.a) del anexo I del Reglamento. Dichas titulaciones serán las mismas que sean necesarias para el acceso a la escala y, en su caso, para la obtención de una determinada especialidad fundamental.</p>
+  </section>
+  
+  <!-- Sección: TITULACIONES -->
+  <section id="titulaciones">
+    <h2>TITULACIONES</h2>
+    <p>Para participar en los procesos de selección para cursar las enseñanzas de formación para incorporarse a las escalas de suboficiales se exigirán los títulos o niveles de estudios que, para cada caso, se especifican a continuación:</p>
+    <h3>Cuerpos Generales de los Ejércitos, Armada e Infantería de Marina:</h3>
+    <ul>
+      <li><strong>Sin titulación previa de Técnico Superior:</strong> Estar en posesión de cualquiera de los requisitos que para el acceso a los ciclos formativos de grado superior se determinan en el artículo 18 y en la disposición adicional tercera del Real Decreto 1147/2011, de 29 de julio, por el que se establece la ordenación general de la formación profesional del sistema educativo.</li>
+    </ul>
+  </section>
+  
+  <!-- Sección: PRUEBAS DE INGRESO -->
+  <section id="pruebas">
+    <h2>PRUEBAS DE INGRESO</h2>
+    <p>Las normas que regulan los procesos de selección para el ingreso en los centros docentes militares de formación para acceder a las escalas de suboficiales de los Cuerpos Generales y de Infantería de Marina establecen que el sistema de selección será el de concurso-oposición. Estas normas regulan tanto el ingreso directo como el ingreso por promoción, con y sin exigencia de titulación de técnico superior.</p>
+  </section>
+  
+  <!-- Sección: PRUEBAS FÍSICAS -->
+  <section id="pruebas-fisicas">
+    <h2>Pruebas médicas y FÍSICAS (Psicofísicas)</h2>
+    <p>ORDEN PCI 06/2019 de 11 de Enero, por la que se aprueba el cuadro médico de exclusiones exigible para el ingreso en los centros docentes militares de formación.</p>
+    <p>En su caso también será de aplicación la Orden Ministerial 23/2011, normas para la valoración de la aptitud médica del personal de las Fuerzas Armadas con responsabilidad de vuelo.</p>
+    <ol>
+      <li>Salto vertical con pies juntos; marca mínima reflejada en centímetros.</li>
+      <li>Extensiones de brazos en posición de tierra inclinada; número mínimo de flexiones.</li>
+      <li>Carrera de 50 metros lisos; tiempo máximo expresado en segundos.</li>
+      <li>Carrera de 1.000 metros lisos; tiempo máximo expresado en minutos y segundos.</li>
+      <li>Natación 50 metros estilo libre; tiempo máximo expresado en minutos y segundos.</li>
+      <li>Circuito de agilidad, para determinar la capacidad de realizar cambios de dirección y posición con rapidez; tiempo máximo expresado en segundos.</li>
+    </ol>
+    <div style="text-align: center; margin-top: 20px;">
+      <img src="https://reclutamiento.defensa.gob.es/documents/1595777/1867294/PRUEBAS+FISICAS+SIN+TITULACION+SUBOFICIALES.png/a8d229ad-ab3f-5836-fbf8-7c376404f562?t=1724757255965" alt="Pruebas Físicas" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+  </section>
+</div>
+{% endblock %}

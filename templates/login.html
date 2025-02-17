@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Inicio de Sesión</h2>
+  <form method="POST" action="{{ url_for('login') }}" autocomplete="off">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+      {{ form.email_or_username.label(class="form-label") }}
+      {{ form.email_or_username(class="form-control", autocomplete="off") }}
+      {% for error in form.email_or_username.errors %}
+        <div class="text-danger">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <div class="mb-3">
+      {{ form.password.label(class="form-label") }}
+      {{ form.password(class="form-control", id="loginPassword", autocomplete="new-password") }}
+      {% for error in form.password.errors %}
+        <div class="text-danger">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <div class="form-check mb-3">
+      {{ form.remember(class="form-check-input") }}
+      {{ form.remember.label(class="form-check-label") }}
+    </div>
+    <div class="form-check mb-3">
+      <input type="checkbox" id="showLoginPassword" class="form-check-input">
+      <label for="showLoginPassword" class="form-check-label">Mostrar contraseña</label>
+    </div>
+    <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+  </form>
+  
+  <div class="mt-3">
+    <a href="{{ url_for('reset_password_request') }}">¿Olvidaste tu contraseña?</a>
+  </div>
+  
+  <div class="mt-3">
+    <p>¿No tienes una cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Regístrate aquí</a></p>
+  </div>
+</div>
+
+<script>
+  // Mostrar/Ocultar contraseña en login
+  document.getElementById('showLoginPassword').addEventListener('change', function() {
+    var pwdField = document.getElementById('loginPassword');
+    pwdField.type = this.checked ? 'text' : 'password';
+  });
+</script>
+
+<!-- Modal de Registro -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="POST" action="{{ url_for('register') }}" autocomplete="off">
+        {{ register_form.hidden_tag() }}
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            {{ register_form.username.label(class="form-label") }}
+            {{ register_form.username(class="form-control", autocomplete="off") }}
+            {% for error in register_form.username.errors %}
+              <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+          </div>
+          <div class="mb-3">
+            {{ register_form.email.label(class="form-label") }}
+            {{ register_form.email(class="form-control", autocomplete="off") }}
+            {% for error in register_form.email.errors %}
+              <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+          </div>
+          <div class="mb-3">
+            {{ register_form.password.label(class="form-label") }}
+            {{ register_form.password(class="form-control", id="registerPassword", autocomplete="new-password") }}
+            {% for error in register_form.password.errors %}
+              <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+          </div>
+          <div class="form-check mb-3">
+            <input type="checkbox" id="showRegisterPassword" class="form-check-input">
+            <label for="showRegisterPassword" class="form-check-label">Mostrar contraseña</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">{{ register_form.submit.label.text }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mostrar/Ocultar contraseña en registro
+  document.getElementById('showRegisterPassword').addEventListener('change', function() {
+    var pwdField = document.getElementById('registerPassword');
+    pwdField.type = this.checked ? 'text' : 'password';
+  });
+</script>
+{% endblock %}

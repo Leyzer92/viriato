@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Mi Perfil</h2>
+  <div class="card">
+    <div class="card-header">
+      Información del usuario
+    </div>
+    <div class="card-body">
+      <p class="card-text"><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+      <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+      <a href="{{ url_for('change_email') }}" class="btn btn-primary me-2">Cambiar Email</a>
+      <a href="{{ url_for('change_password') }}" class="btn btn-secondary">Cambiar Contraseña</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

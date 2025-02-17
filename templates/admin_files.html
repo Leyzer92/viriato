@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Archivos Subidos</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Archivo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for file in files %}
+      <tr>
+        <td>{{ file }}</td>
+        <td>
+          <form action="{{ url_for('delete_file', filename=file) }}" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este archivo?');">
+            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

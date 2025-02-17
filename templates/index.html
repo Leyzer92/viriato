@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h2>¿Quieres ser suboficial?</h2>
+        <div class="buttons">
+            <a href="{{ url_for('suboficial') }}" class="btn primary">ALCANZA TUS METAS</a>
+            <a href="{{ url_for('preparaciones') }}" class="btn secondary">PREPARACIONES</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

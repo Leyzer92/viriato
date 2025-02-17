@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Fondo con imagen y efecto blur */
+  .suboficial-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://live.staticflickr.com/65535/54078853670_5e6fcedf9c_b.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(4px);
+    z-index: -1;
+  }
+  /* Contenedor del contenido para mantener la legibilidad */
+  .suboficial-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  /* Logo incrustado centrado en el contenedor (watermark) */
+  .suboficial-content .academy-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  /* Estilos para la sección de Runner.app */
+  .runner-app-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .runner-app-section img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+</style>
+
+<div class="suboficial-bg"></div>
+<div class="container mt-5 suboficial-content">
+  <!-- Logo incrustado (watermark) -->
+  <img src="{{ url_for('static', filename='images/viriato1.webp') }}" alt="Academia Logo" class="academy-logo">
+  
+  <h1 style="text-align: center;">¡Prepárate para el éxito con nuestra academia!</h1>
+  <p>Sabemos que alcanzar tu meta requiere la mejor preparación. Por eso, te ofrecemos un entrenamiento completo en Física y Matemáticas para que domines cada concepto y llegues con confianza al examen.</p>
+  
+  <h2>¿Qué obtendrás?</h2>
+  <ul>
+    <li>Acceso al <strong>temario completo</strong> con todos los contenidos clave.</li>
+    <li>Ejercicios prácticos y <strong>simulacros de examen</strong> para entrenar como en la prueba real.</li>
+  </ul>
+
+  <h3 style="text-align: center;">Accede a todo el contenido</h3>
+  <p>Para descargar el material y acceder a los recursos exclusivos, <strong><a href="{{ url_for('login') }}"><strong>Regístrate</strong></a> en nuestra web</strong> y accede a tu cuenta:</p>
+  <p>¡No pierdas esta oportunidad y comienza tu preparación hoy mismo!</p>
+  
+  <h3 style="text-align: center;">Supera las pruebas físicas con Runnerpro.app</h3>
+  <div class="runner-app-section">
+    <p>
+      La preparación física también es clave. Por eso, te recomendamos 
+      <a href="https://www.runnerpro.app/es/" target="_blank"><strong>Runnerpro.app</strong></a>, 
+      la app que conecta con entrenadores personales para que mejores tu rendimiento y superes cada prueba.
+    </p>
+    <p>
+      ¿Lo mejor? Usando el código <strong>AG3572</strong>, obtendrás un <strong>descuento de 20 euros</strong> en la app. 
+      ¡No dejes pasar esta oportunidad!
+    </p>
+    <a href="https://www.runnerpro.app/es/" target="_blank">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLZ7EhuT4x_lbCWNZEeLP9qBgAwDCHt__9Cg&s" alt="Runnerpro App">
+    </a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Subir Archivo</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="subject" class="form-label">Materia</label>
+      <select class="form-select" name="subject" id="subject" required>
+        <option value="">Seleccione una materia</option>
+        <option value="fisica">Física</option>
+        <option value="mates">Matemáticas</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="folder" class="form-label">Temario</label>
+      <select class="form-select" name="folder" id="folder" required>
+        <option value="">Seleccione un temario</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="file" class="form-label">Selecciona el archivo a subir</label>
+      <input type="file" class="form-control" name="file" id="file" required>
+    </div>
+    <button type="submit" class="btn btn-success">Subir Archivo</button>
+  </form>
+</div>
+
+<script>
+  // Opciones de temario para cada materia
+  const folders = {
+    fisica: [
+      { value: 'campo_gravitatorio', text: 'Campo gravitatorio' },
+      { value: 'campo_magnetico', text: 'Campo magnético' },
+      { value: 'campo_electrico', text: 'Campo eléctrico' },
+      { value: 'ondas', text: 'Ondas' },
+      { value: 'optica', text: 'Óptica' }
+    ],
+    mates: [
+      { value: 'matrices', text: 'Matrices' },
+      { value: 'vectores', text: 'Vectores' },
+      { value: 'trigonometria', text: 'Trigonometría' },
+      { value: 'derivadas', text: 'Derivadas' },
+      { value: 'integrales', text: 'Integrales' },
+      { value: 'estadisticas', text: 'Estadísticas' }
+    ]
+  };
+
+  const subjectSelect = document.getElementById('subject');
+  const folderSelect = document.getElementById('folder');
+
+  subjectSelect.addEventListener('change', function() {
+    const selectedSubject = subjectSelect.value;
+    folderSelect.innerHTML = '<option value="">Seleccione un temario</option>';
+    if (selectedSubject && folders[selectedSubject]) {
+      folders[selectedSubject].forEach(function(option) {
+        const opt = document.createElement('option');
+        opt.value = option.value;
+        opt.text = option.text;
+        folderSelect.appendChild(opt);
+      });
+    }
+  });
+</script>
+{% endblock %}

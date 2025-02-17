@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Descargar contenido - {{ subject | capitalize }} / {{ folder | replace('_', ' ') | capitalize }}</h2>
+  <p>A continuación, se muestran los archivos disponibles para descargar:</p>
+  
+  {% if files %}
+    <ul class="list-group">
+      {% for file in files %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ file }}
+        <a href="{{ url_for('static', filename='downloads/' ~ subject ~ '/' ~ folder ~ '/' ~ file) }}" class="btn btn-primary btn-sm" download>Descargar</a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No se encontraron archivos en este temario.</p>
+  {% endif %}
+  
+  <a href="{{ url_for('content') }}" class="btn btn-secondary mt-3">Volver al Contenido</a>
+</div>
+{% endblock %}

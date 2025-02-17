@@ -1,0 +1,303 @@
+/* Aseguramos que html y body ocupen el 100% de la altura */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gunplay', sans-serif;
+    background-color: #f4f4f4;
+    padding-top: 80px; /* Compensa el header fijo */
+}
+* {
+    font-family: 'Gunplay', sans-serif;
+}
+
+@font-face {
+    font-family: 'Gunplay';
+    src: url('/static/font/gunplayrg.otf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+/* Contenedor principal: el contenido se expandirá para empujar el footer hacia abajo */
+.main-content {
+    flex: 1;
+}
+
+/* Header Styles */
+header {
+    background-color: #2c3e50;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Bloque del logo posicionado en la esquina superior derecha */
+.logo-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+    color: white;
+  }
+  .logo-container img {
+    max-width: 80px; /* Ajusta según prefieras */
+    display: block;
+    margin: 0 auto;
+  }
+  .logo-container h1 {
+    margin: 0;
+    font-size: 1.2em; /* Ajusta el tamaño del título */
+  }
+  
+  /* Opcional: si deseas que la navegación no se vea afectada por el logo, 
+     puedes darle un margen derecho al contenedor principal de la navbar, por ejemplo: */
+  .navbar-collapse {
+    margin-right: 120px; /* Deja espacio para el logo en la esquina */
+  }
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.logo img {
+    max-width: 100px;
+    margin-right: 10px;
+    margin-top: 50px;
+}
+.logo h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: #2c3e50;
+  font-size: smaller;
+  margin-bottom: 25px;  
+  margin-top: 25px; 
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 5px;
+  display: block;
+}
+nav ul li a.active {
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-top: 80px;
+    overflow: hidden; /* Impide que el pseudo-elemento se desborde */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://fotografias.larazon.es/clipping/cmsimages02/2024/09/05/1E1A787E-657B-405C-8A07-C650E210479F/maniobras-ejercito-tierra-espanol_98.jpg?crop=777,437,x0,y38&width=1900&height=1069&optimize=low&format=webply') no-repeat center center/cover;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Overlay para la sección Hero */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Contenido dentro del Hero */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn.primary {
+    background-color: #e67e22;
+    color: white;
+}
+.btn.secondary {
+    border: 2px solid #e67e22;
+    color: #e67e22;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Cambio de color del header al hacer scroll */
+.scrolled {
+    background-color: #1abc9c !important;
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* Estilos para los mensajes flash */
+.flash-messages {
+    margin-top: 100px;
+    z-index: 1100;
+    position: relative;
+}
+
+/* Móviles pequeños (hasta 576px) */
+@media (max-width: 576px) {
+    .header-title {
+        font-size: 2em;
+    }
+    nav .nav-link {
+        font-size: 1em;
+    }
+    .text-box {
+        padding: 20px;
+        font-size: 0.9em;
+        width: 100%;
+    }
+    .logo img {
+        max-width: 50px;
+        object-fit: contain;
+    }
+    
+    /* Ajuste específico para navegación en móviles */
+    nav ul {
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: center;
+    }
+    nav ul li {
+        margin: 5px 0;
+    }
+}
+
+/* Móviles medianos / Tablets (577px - 767px) */
+@media (min-width: 577px) and (max-width: 767px) {
+    .header-title {
+        font-size: 2.5em;
+    }
+    nav .nav-link {
+        font-size: 1.1em;
+    }
+    .text-box {
+        padding: 25px;
+        font-size: 1em;
+    }
+    .logo img {
+        max-width: 60px;
+        object-fit: contain;
+    }
+}
+
+/* Tablets (768px - 992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .header-title {
+        font-size: 3em;
+    }
+    nav .nav-link {
+        font-size: 1.2em;
+    }
+    .text-box {
+        padding: 30px;
+        font-size: 1em;
+    }
+    .logo img {
+        max-width: 70px;
+        object-fit: contain;
+    }
+}
+
+/* Pantallas grandes (993px en adelante) */
+@media (min-width: 993px) {
+    .header-title {
+        font-size: 3.5em;
+    }
+    nav .nav-link {
+        font-size: 1.3em;
+    }
+    .text-box {
+        padding: 30px;
+        font-size: 1.1em;
+    }
+    .logo img {
+        max-width: 80px;
+        object-fit: contain;
+    }
+}
+/* Estilos para el header integrado con navbar (Bootstrap) */
+header.header-custom {
+    background-color: #2c3e50;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+header.header-custom.scrolled {
+    background-color: #1abc9c !important;
+}
+header.header-custom nav {
+    background: transparent;
+}
+
+/* Aseguramos que el texto en la navbar sea blanco */
+header.header-custom .navbar-brand,
+header.header-custom .nav-link {
+    color: white !important;
+}
+
+/* Personalización del botón de toggler para móviles */
+header.header-custom .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+header.header-custom .navbar-toggler-icon {
+    filter: invert(1);
+}

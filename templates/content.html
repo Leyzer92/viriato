@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Fondo con blur utilizando la imagen proporcionada */
+  .bg-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://plus.unsplash.com/premium_photo-1680807869780-e0876a6f3cd5?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXVsYXxlbnwwfHwwfHx8MA%3D%3D') no-repeat center center;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+  }
+  /* Contenedor traslúcido para el contenido principal */
+  .translucent-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 150px; /* Aumenta el valor según lo necesites */
+}
+
+  /* Estilos para la tarjeta flip */
+  .flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px; /* Ajusta la altura según necesites */
+    perspective: 1000px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Efecto de relieve al pasar el ratón */
+  .flip-card:hover .flip-card-inner {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Activa el giro */
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .flip-card-front {
+    /* Puedes agregar estilos adicionales si lo deseas */
+  }
+  
+  .flip-card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    padding: 15px;
+    text-align: center;
+    overflow-y: auto;
+  }
+</style>
+
+<div class="bg-blur"></div>
+
+<div class="container mt-5 translucent-container">
+  <h2>Temario</h2>
+  <p>Selecciona la materia y luego el temario que deseas descargar.</p>
+  
+  <div class="row">
+    <!-- Flip Card para Física -->
+    <div class="col-md-6">
+      <div class="flip-card" id="flip-card-fisica">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://concepto.de/wp-content/uploads/2018/08/f%C3%ADsica-e1534938838719.jpg" alt="Física" style="width:100%; height:100%; object-fit: cover;">
+          </div>
+          <div class="flip-card-back">
+            <h3>Física</h3>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='fisica', folder='campo_gravitatorio') }}">Campo gravitatorio</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='fisica', folder='campo_magnetico') }}">Campo Magnético</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='fisica', folder='campo_electrico') }}">Campo Eléctrico</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='fisica', folder='ondas') }}">Ondas</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='fisica', folder='optica') }}">Óptica</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Flip Card para Matemáticas -->
+    <div class="col-md-6">
+      <div class="flip-card" id="flip-card-mates">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://www.magisnet.com/wp-content/uploads/2020/12/Timms2019-1.jpg" alt="Matemáticas" style="width:100%; height:100%; object-fit: cover;">
+          </div>
+          <div class="flip-card-back">
+            <h3>Matemáticas</h3>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='mates', folder='matrices') }}">Matrices</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='mates', folder='vectores') }}">Vectores</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='mates', folder='trigonometria') }}">Trigonometría</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='mates', folder='derivadas') }}">Derivadas</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='mates', folder='integrales') }}">Integrales</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{ url_for('download_page', subject='mates', folder='estadisticas') }}">Estadísticas</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("flip-card-fisica").addEventListener("click", function(){
+      this.classList.toggle("flipped");
+    });
+    document.getElementById("flip-card-mates").addEventListener("click", function(){
+      this.classList.toggle("flipped");
+    });
+  });
+</script>
+{% endblock %}
